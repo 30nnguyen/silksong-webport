@@ -1,0 +1,87 @@
+name: Bug Report (Gameplay / Crash / Save / Memory)
+description: Report a gameplay softlock, crash, out-of-memory error, save/rewind issue, or input bug.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the web port! The more concrete detail you provide (especially the exact room/area, browser/GPU, and Diagnostics text from the Settings drawer), the faster we can reproduce and fix it.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Issue Category
+      options:
+        - Crash / Freeze / Out of Memory (OOM)
+        - Gameplay Softlock / Stuck Animation / Boss or Arena Issue
+        - Room Transition / Missing Gate / Stranded Subscene
+        - Save / Rewind (↺) / Import or Export Issue
+        - Offline Play / Cache / Loading Screen Issue
+        - Controls / Keyboard / Gamepad / Fullscreen Issue
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Room / Area / Boss / Sequence
+      description: Where in the game did this happen? (e.g. "High Halls Arena right exit", "Bell Beast in Bone Bottom", "Bench in Whispering Vaults", "Title Screen")
+      placeholder: "Area / room / boss / menu name"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: renderer
+    attributes:
+      label: Browser & Graphics Backend
+      description: Which browser are you using? (Check Settings → Diagnostics if unsure about WebGPU vs WebGL 2.)
+      options:
+        - Chrome / Chromium (WebGPU)
+        - Chrome / Chromium (WebGL 2)
+        - Microsoft Edge (WebGPU)
+        - Microsoft Edge (WebGL 2)
+        - Firefox (WebGL 2)
+        - Safari
+        - Brave / Opera / Arc / Other Chromium
+        - Other (mention below)
+    validations:
+      required: true
+
+  - type: input
+    id: system
+    attributes:
+      label: OS, GPU & RAM
+      description: Operating system, GPU (integrated vs dedicated), and approximate system RAM.
+      placeholder: "e.g. Windows 11, RTX 3060 / Intel Iris Xe, 16 GB RAM"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to Reproduce
+      description: Tell us step-by-step how to trigger the issue.
+      placeholder: |
+        1. Enter [room] from [direction]
+        2. Equip [tool/crest] or trigger [fight/bench/menu]
+        3. Observe [exact problem]
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_actual
+    attributes:
+      label: Expected vs. Actual Behavior
+      description: What should happen (compared to native Silksong) vs. what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics / Console Errors / Screenshots (Optional but Very Helpful)
+      description: |
+        Hover the bottom-right corner (or press `Ctrl+Shift+S`) → click **Diagnostics** to copy telemetry, or paste any red console errors from DevTools (`F12` → Console). You can also drag and drop screenshots or a `.dat` save backup right here.
+      render: text

@@ -1,0 +1,62 @@
+name: Deploy Playable Build to GitHub Pages
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [deploy-pages]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private source repository
+        uses: actions/checkout@v4
+        with:
+          repository: 30nnguyen/silksong-webport-private
+          ssh-key: ${{ secrets.PRIVATE_SOURCE_KEY }}
+          path: _src
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install build dependencies
+        working-directory: _src
+        run: npm ci --ignore-scripts
+
+      - name: Build obfuscated & domain-locked production bundle
+        working-directory: _src
+        run: node scripts/build-ghpages.mjs --out ../_site --domains 30nnguyen.github.io
+
+      - name: Scrub source checkout before artifact upload
+        run: rm -rf _src
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

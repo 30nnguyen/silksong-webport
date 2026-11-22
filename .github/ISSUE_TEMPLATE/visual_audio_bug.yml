@@ -1,0 +1,59 @@
+name: Visual / Shader / Audio / Cutscene Bug
+description: Report missing tiles, wrong lighting/tint, shader glitches, silent/desynced audio, or video playback issues.
+title: "[Visual/Audio]: "
+labels: ["visual-audio", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Visual and audio parity bugs are easiest to track down when we have the exact room/cue and a screenshot (or short clip) showing the mismatch against native Silksong.
+
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: Defect Type
+      options:
+        - Missing black tiles / background gap / cutout box
+        - Wrong room lighting / color tint / fog / darkness / blur
+        - Sprite / HUD / UI glitch or wrong blend mode
+        - Missing or silent sound effect / music / voice cue
+        - Looped, desynced, or distorted audio
+        - Cutscene video black screen / stutter / missing audio
+        - Performance / low FPS / stutter in specific room
+    validations:
+      required: true
+
+  - type: input
+    id: room
+    attributes:
+      label: Exact Room, Boss, or Cue Name
+      placeholder: "e.g. Whispering Vaults east shaft, Mount Fay bench, Trobbio phase 2 drum cue"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: renderer
+    attributes:
+      label: Browser & Backend
+      options:
+        - Chrome / Edge (WebGPU)
+        - Chrome / Edge (WebGL 2)
+        - Firefox
+        - Safari
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: What Happened & How to Reproduce
+      description: Does it happen immediately on entry, only after leaving and re-entering the room, or only with a specific graphics option (e.g. Film Grain / Render Scale)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots / Video / Save File
+      description: Drag and drop a screenshot (1080p preferred) or `.dat` save backup near the affected room so we can capture the exact frame.
