@@ -32,7 +32,7 @@ If something looks wrong, sounds silent, stutters, or crashes while playing on *
     - **Cache Full Game**: Downloads and SHA-256 verifies all 210 game files (shell, WASM engine, 165 Addressables bundles, and 26 cutscenes) into browser `CacheStorage` for offline play.
     - **Verify**: Audits cached file integrity against the release manifests.
   - **Memory & Display**:
-    - **Scale**: Adjusts canvas render resolution (`0.75×` minimum up to `1.0×` native DPR, keeping full-resolution source textures intact). Lowering to `0.75×` helps integrated GPUs maintain 60 FPS.
+    - **Scale**: Adjusts canvas render resolution (`0.5×`, `0.75×`, `0.85×`, or `1.0×` native DPR, keeping full-resolution source textures intact). Lowering to `0.75×` or `0.5×` helps integrated/low-end GPUs maintain 60 FPS.
     - **HUD**: Toggle between **Hidden** (invisible at rest; reveals on bottom-right corner hover), **Warnings**, or **Always Visible**.
     - **Fullscreen**: Enters fullscreen on `document.documentElement` so the Settings drawer remains usable in fullscreen.
     - **Diagnostics**: Opens crash/memory telemetry (live WASM heap, free headroom, allocator layout status, recent errors) so you can copy-paste it into a bug report.
@@ -54,7 +54,7 @@ Press any button on your controller (Xbox, PlayStation DualShock 4 / DualSense, 
 Hard-refresh the tab (**`Ctrl + Shift + R`** on Windows/Linux, **`Cmd + Shift + R`** on macOS). The Service Worker pins active tabs to consistent releases and automatically promotes updated verified shells on fresh navigation.
 
 ### Low FPS on integrated GPU / laptop
-1. Open Settings (`Ctrl + Shift + S`) → set **Scale** to **`0.75×`**.
+1. Open Settings (`Ctrl + Shift + S`) → set **Scale** to **`0.75×`** or **`0.5×`**.
 2. Ensure browser **Hardware Acceleration** is enabled in Chrome/Edge settings (`chrome://settings/system`).
 3. Close other heavy GPU/WebGL tabs so the browser isn't competing for VRAM.
 

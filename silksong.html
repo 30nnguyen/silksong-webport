@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollow Knight: Silksong — Web Port</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0b0d11;
+      color: #e6edf3;
+      font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+    }
+    #game-frame {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #0b0d11;
+    }
+    #fallback {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    #fallback.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #fallback a {
+      color: #58d5c9;
+      text-decoration: none;
+      border: 1px solid #58d5c9;
+      padding: 8px 14px;
+      border-radius: 4px;
+    }
+    #fallback a:hover { background: rgba(88, 213, 201, 0.12); }
+    #fallback p { color: #8b949e; font-size: 13px; max-width: 460px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div id="fallback" role="status">
+    <div>Hollow Knight: Silksong — Web Port</div>
+    <p>Unable to load the embedded launcher. Open the web port directly instead:</p>
+    <a href="https://30nnguyen.github.io/silksong-webport/" rel="noopener">Open 30nnguyen.github.io/silksong-webport</a>
+  </div>
+  <iframe
+    id="game-frame"
+    src="https://30nnguyen.github.io/silksong-webport/"
+    title="Hollow Knight: Silksong Web Port"
+    allow="fullscreen; gamepad; autoplay; clipboard-read; clipboard-write"
+    allowfullscreen
+  ></iframe>
+  <script>
+    (function () {
+      var frame = document.getElementById("game-frame");
+      var fallback = document.getElementById("fallback");
+      var loaded = false;
+      var timer = setTimeout(function () {
+        if (!loaded) fallback.classList.add("visible");
+      }, 15000);
+      frame.addEventListener("load", function () {
+        loaded = true;
+        clearTimeout(timer);
+        fallback.classList.remove("visible");
+        try { frame.focus(); } catch (_) {}
+      });
+      frame.addEventListener("error", function () {
+        clearTimeout(timer);
+        fallback.classList.add("visible");
+      });
+      window.addEventListener("focus", function () {
+        try { frame.focus(); } catch (_) {}
+      });
+    })();
+  </script>
+</body>
+</html>
