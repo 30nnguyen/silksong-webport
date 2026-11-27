@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Play Silksong Web Port
-    url: https://30nnguyen.github.io/silksong-webport/
-    about: Launch the latest verified browser build directly on GitHub Pages.
+    url: https://d1qh2ou2210k6v.cloudfront.net/
+    about: Launch the latest verified browser build directly (open to everyone).
   - name: Troubleshooting & FAQ
     url: https://github.com/30nnguyen/silksong-webport/blob/main/docs/TROUBLESHOOTING.md
     about: Check browser requirements, WebGPU/WebGL 2 tips, save backups, and offline caching before filing a report.

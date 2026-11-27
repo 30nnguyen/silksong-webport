@@ -1,6 +1,6 @@
-# Hollow Knight: Silksong — **FULLY FIXED AND WORKING** Web Port (.html file · https://30nnguyen.github.io/silksong-webport/)
+# Hollow Knight: Silksong — **FULLY FIXED AND WORKING** Web Port (.html file · https://d1qh2ou2210k6v.cloudfront.net/)
 
-> **Play the FULLY FIXED AND WORKING Port Now (No Download Required):** **[https://30nnguyen.github.io/silksong-webport/](https://30nnguyen.github.io/silksong-webport/)**
+> **Play the FULLY FIXED AND WORKING Port Now (No Download Required):** **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)**
 >
 > **Prefer a single `.html` file?** Download **[`silksong.html`](https://raw.githubusercontent.com/30nnguyen/silksong-webport/main/silksong.html)** (right-click → *Save Link As*) and double-click it to open in Chrome or Edge — no unzipping, no extra files, always up to date.
 >
@@ -69,7 +69,7 @@ Older Silksong browser ports suffered from frequent out-of-memory crashes, missi
 
 ## How to Play
 
-1. **Direct Browser Link (Recommended)**: Open **[https://30nnguyen.github.io/silksong-webport/](https://30nnguyen.github.io/silksong-webport/)** in desktop Chrome or Edge (64-bit).
+1. **Direct Browser Link (Recommended)**: Open **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)** in desktop Chrome or Edge (64-bit).
 2. **Single Standalone HTML File**: Download **[`silksong.html`](https://raw.githubusercontent.com/30nnguyen/silksong-webport/main/silksong.html)** from this repository and open it directly in your browser. It fetches the latest verified game files automatically without needing any other local files or source code.
 
 ### Controls Quick Reference
@@ -110,7 +110,7 @@ Let us know the **room/boss name**, your **browser & GPU**, a **screenshot** if 
 - **[Troubleshooting & Browser Tips](docs/TROUBLESHOOTING.md)** — WebGPU vs. WebGL 2, laptop Render Scale tips, offline caching, and save backup/import help.
 
 > [!NOTE]
-> This public repository hosts the project documentation, standalone [`silksong.html`](silksong.html) launcher, and public issue tracker. Source code is kept private to prevent unauthorized re-hosting/ad-wrapping; the playable build deploys automatically to **[https://30nnguyen.github.io/silksong-webport/](https://30nnguyen.github.io/silksong-webport/)**.
+> This public repository hosts the project documentation, standalone [`silksong.html`](silksong.html) launcher, and public issue tracker. Source code is kept private to prevent unauthorized re-hosting/ad-wrapping; the playable build is hosted publicly at **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)** (open to everyone, subject to monthly AWS free-tier limits).
 
 ---
 

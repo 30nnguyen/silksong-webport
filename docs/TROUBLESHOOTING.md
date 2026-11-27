@@ -1,6 +1,6 @@
 # Troubleshooting, Browser Setup & Bug Reporting Guide
 
-If something looks wrong, sounds silent, stutters, or crashes while playing on **[30nnguyen.github.io/silksong-webport](https://30nnguyen.github.io/silksong-webport/)**, check the tips below and open a GitHub Issue so we can fix it.
+If something looks wrong, sounds silent, stutters, or crashes while playing on **[d1qh2ou2210k6v.cloudfront.net](https://d1qh2ou2210k6v.cloudfront.net/)**, check the tips below and open a GitHub Issue so we can fix it.
 
 ---
 
