@@ -83,5 +83,5 @@ body:
     attributes:
       label: Diagnostics / Console Errors / Screenshots (Optional but Very Helpful)
       description: |
-        Hover the bottom-right corner (or press `Ctrl+Shift+S`) → click **Diagnostics** to copy telemetry, or paste any red console errors from DevTools (`F12` → Console). You can also drag and drop screenshots or a `.dat` save backup right here.
+        If you clicked **Report on GitHub (Auto-Filled)** from a Crash Report or **Report Bug** in Settings, this box is already filled in for you! Otherwise, hover the bottom-right corner (or press `Ctrl+Shift+S`) → **Diagnostics** → **Copy Report** and paste it here. You can also drag and drop screenshots or a `.dat` save backup.
       render: text

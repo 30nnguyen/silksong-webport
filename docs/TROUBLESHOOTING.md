@@ -38,7 +38,7 @@ If something looks wrong, sounds silent, stutters, or crashes while playing on *
     - **Scale**: Adjusts canvas render resolution live (`0.5×`, `0.75×`, `0.85×`, or `1.0×` native DPR, no reload required) while keeping full-resolution source textures intact. Lowering to `0.75×` or `0.5×` helps integrated/low-end GPUs maintain 60 FPS.
     - **HUD**: Toggle between **Compact**, **Detailed**, **Warnings**, or **Hidden** (invisible at rest; reveals on bottom-right corner hover).
     - **Fullscreen**: Enters fullscreen on `document.documentElement` so the Settings drawer remains visible, and locks **`Escape`** (Chromium Keyboard Lock API) so pressing `Escape` pauses the game instead of exiting fullscreen *(hold `Escape` for ~2s to exit fullscreen)*.
-    - **Diagnostics**: Opens crash/memory telemetry (live WASM heap, free headroom, allocator layout status, recent errors) so you can copy-paste it into a bug report.
+    - **Diagnostics**: Opens crash and performance telemetry (auto-classified crash verdict, current/recent room trail, WebGPU/WebGL GPU adapter & device-lost tracking, WASM + MEMFS + Data total memory breakdown, failed asset fetches, and engine errors) with 1-click **Report on GitHub (Auto-Filled)**, **Copy Report**, **Download `.txt` / `.json`**, and a **Last Crash** tab so crash logs aren't lost after reloading.
 
 ---
 
@@ -56,23 +56,22 @@ Press any button on your controller (Xbox, PlayStation DualShock 4 / DualSense, 
 ### Stuck on an old cached version after an update
 Hard-refresh the tab (**`Ctrl + Shift + R`** on Windows/Linux, **`Cmd + Shift + R`** on macOS). The Service Worker pins active tabs to consistent releases and automatically promotes updated verified shells on fresh navigation.
 
-### Low FPS on integrated GPU / laptop
+### Low FPS or crashes on Chromebooks / 4–8 GB RAM laptops
 1. Open Settings (`Ctrl + Shift + S`) → set **Scale** to **`0.75×`** or **`0.5×`**.
-2. Ensure browser **Hardware Acceleration** is enabled in Chrome/Edge settings (`chrome://settings/system`).
-3. Close other heavy GPU/WebGL tabs so the browser isn't competing for VRAM.
+2. Close other browser tabs/apps — Chromebooks and laptops with integrated GPUs share system RAM between the OS, WASM heap, cached bundles, and GPU VRAM.
+3. Click **✦ Free Memory** in Settings before entering major new areas or after boss fights.
+4. Ensure browser **Hardware Acceleration** is enabled (`chrome://settings/system`).
 
 ---
 
 ## 4. How to Report a Bug
 
-Found something broken, missing, silent, or visually off compared to the native Windows release? **Please let us know!**
+Found something broken, missing, silent, or crashing compared to the native Windows release? **Please let us know!**
 
-1. Go to the **[Issues tab](https://github.com/30nnguyen/silksong-webport/issues/new/choose)** and pick either:
+1. **Fastest (1-click auto-filled)**:
+   - If the game crashed, click **Report on GitHub (Auto-Filled)** directly on the **SESSION CRASH REPORT** popup (or press `Ctrl + Shift + S` → **Report Bug** / **Diagnostics** → **Last Crash**).
+   - This automatically fills in your room/scene, graphics backend, OS/GPU/RAM, automatic root-cause verdict, memory breakdown, and recent errors — AND copies the full log to your clipboard.
+2. **Manual**: Go to the **[Issues tab](https://github.com/30nnguyen/silksong-webport/issues/new/choose)** and pick either:
    - **Bug Report (Gameplay / Crash / Save / Memory)**, or
    - **Visual / Shader / Audio / Cutscene Bug**.
-2. Include:
-   - The **exact room / boss / menu / cue** where it occurred.
-   - Your **browser, OS, GPU, and backend (WebGPU vs WebGL 2)**.
-   - **Steps to reproduce** (especially whether it happens on first room entry or after leaving & re-entering).
-   - A **screenshot** (for visual glitches) and, if possible, a **`.dat` backup** (Settings → **Backup `.dat`**) right before the bug so we can reproduce the exact frame in an isolated test.
-   - Any **Diagnostics** output (`Ctrl + Shift + S` → **Diagnostics**) or red errors from DevTools Console (`F12`).
+3. If possible, also drag & drop a **screenshot** (for visual glitches) or a **`.dat` backup** (Settings → **Backup `.dat`**) right before the bug so we can reproduce the exact frame in an isolated test.
