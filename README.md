@@ -8,6 +8,14 @@
 
 Play the **FULLY FIXED AND WORKING** *Hollow Knight: Silksong* right in your browser (WebGPU & WebGL 2) with **original HD graphics**, **complete audio & 1080p cutscenes**, **working saves + built-in Rewind (`↺`)**, **offline play**, **controller support**, **zero ads**, and **huge crash/memory fixes** compared to older broken Silksong web ports.
 
+<p align="center">
+  <img src="docs/images/bellhart-town.webp" alt="Hollow Knight: Silksong running in browser — Bellhart bench, NPCs, lighting, full HUD, Ready offline & 64.8% OOM headroom" width="100%" />
+</p>
+
+| Bell Beast & Bellway Lighting | Mount Fay Overlook & Ice Shaders |
+| :---: | :---: |
+| ![Bell Beast in the Bellway running in browser with Ready offline and 65.8% OOM headroom](docs/images/bell-beast-station.webp) | ![Hornet on Mount Fay cliffside running in browser with full HUD, Ready offline, and 64.5% OOM headroom](docs/images/mount-fay-summit.webp) |
+
 > [!IMPORTANT]
 > **ENJOYING THE PORT? PLEASE DROP A STAR ON THIS REPO AT THE TOP RIGHT — IT REALLY HELPS OTHER PLAYERS FIND A WORKING VERSION!**
 
@@ -101,10 +109,11 @@ Older Silksong browser ports suffered from frequent out-of-memory crashes, missi
 *Hollow Knight: Silksong* is huge, and while we've tested across 15+ biomes, multiple bosses, Act 3, and all endings on both WebGPU and WebGL 2, there can still be rare edge cases on specific GPUs, browsers, or late-game rooms.
 
 **If anything looks off, sounds silent, freezes, or crashes, please report it here:**
+- **Fastest (1-click auto-filled):** Click **Report on GitHub (Auto-Filled)** on any Crash Report popup, or press `Ctrl + Shift + S` → **Report Bug** / **Diagnostics** → **Copy Report** (automatically includes room/scene, GPU, memory breakdown, and root-cause verdict).
 - **[Report a Gameplay / Crash / Save / Controls Bug](https://github.com/30nnguyen/silksong-webport/issues/new?template=bug_report.yml)**
 - **[Report a Visual / Shader / Audio / Cutscene Bug](https://github.com/30nnguyen/silksong-webport/issues/new?template=visual_audio_bug.yml)**
 
-Let us know the **room/boss name**, your **browser & GPU**, a **screenshot** if visual, and (optionally) copy the **Diagnostics** info from Settings (`Ctrl + Shift + S` → **Diagnostics**) or attach a `.dat` save backup.
+You can also drag & drop a **screenshot** or a **`.dat` save backup** (`Ctrl + Shift + S` → **Backup `.dat`**) directly into the issue form.
 
 ---
 
