@@ -50,6 +50,44 @@
     }
     #fallback a:hover { background: rgba(88, 213, 201, 0.12); }
     #fallback p { color: #8b949e; font-size: 13px; max-width: 460px; line-height: 1.5; }
+    #file-tip {
+      position: fixed;
+      left: 12px;
+      bottom: 10px;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100vw - 260px);
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #262e3a;
+      background: rgba(15, 18, 24, 0.92);
+      color: #8b949e;
+      font-size: 11px;
+      line-height: 1.35;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+    #file-tip.show { display: inline-flex; }
+    #file-tip a {
+      color: #58d5c9;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid rgba(88, 213, 201, 0.4);
+      background: rgba(88, 213, 201, 0.1);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    #file-tip a:hover { background: rgba(88, 213, 201, 0.22); color: #e6edf3; }
+    #file-tip button {
+      border: 0;
+      background: transparent;
+      color: #8b949e;
+      font: 13px/1 inherit;
+      cursor: pointer;
+      padding: 0 2px;
+    }
+    #file-tip button:hover { color: #e6edf3; }
   </style>
 </head>
 <body>
@@ -62,13 +100,20 @@
     id="game-frame"
     src="https://d1qh2ou2210k6v.cloudfront.net/"
     title="Hollow Knight: Silksong Web Port"
-    allow="fullscreen; gamepad; autoplay; clipboard-read; clipboard-write"
+    allow="fullscreen; gamepad; autoplay; clipboard-read; clipboard-write; keyboard-lock"
     allowfullscreen
   ></iframe>
+  <div id="file-tip" role="note">
+    <span>Local file mode: for full Offline Play &amp; shared browser saves, open directly</span>
+    <a href="https://d1qh2ou2210k6v.cloudfront.net/" target="_blank" rel="noopener noreferrer">Open Direct Tab</a>
+    <button id="file-tip-close" type="button" aria-label="Dismiss notice">×</button>
+  </div>
   <script>
     (function () {
       var frame = document.getElementById("game-frame");
       var fallback = document.getElementById("fallback");
+      var tip = document.getElementById("file-tip");
+      var tipClose = document.getElementById("file-tip-close");
       var loaded = false;
       var timer = setTimeout(function () {
         if (!loaded) fallback.classList.add("visible");
@@ -86,6 +131,15 @@
       window.addEventListener("focus", function () {
         try { frame.focus(); } catch (_) {}
       });
+      if (window.location && window.location.protocol === "file:" && tip) {
+        tip.classList.add("show");
+        var hideTip = function () {
+          tip.classList.remove("show");
+          try { frame.focus(); } catch (_) {}
+        };
+        if (tipClose) tipClose.addEventListener("click", hideTip);
+        setTimeout(hideTip, 18000);
+      }
     })();
   </script>
 </body>

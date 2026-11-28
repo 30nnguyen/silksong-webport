@@ -24,17 +24,20 @@ If something looks wrong, sounds silent, stutters, or crashes while playing on *
 - **Settings Controls**:
   - **Save Slots (`Slot 1–4`)**:
     - **Backup `.dat`**: Downloads the encrypted native-compatible `.dat` save file for that slot.
-    - **Import file / Drag & Drop**: Imports a `.dat` (or compatible `.json`) save directly into the selected slot and syncs it to IndexedDB (`IDBFS`).
+    - **Import file / Drag & Drop**: Imports a `.dat` (or compatible `.json`) save directly into the selected slot, syncs it to IndexedDB (`IDBFS`), and refreshes the save slot live with **no browser tab reload** (if overwriting your currently active slot in gameplay, an inline **Return to Title & Load Save** button lets you switch cleanly without reloading).
   - **Native In-Game Rewind (`↺`)**:
     - Every committed bench/save write automatically creates a rolling native restore point (up to 20 per slot, preserving `NODEL*` milestone points).
     - Click the **`↺` (Rewind)** icon directly beneath any save slot on the title menu's Save Select screen to browse and restore `AUTO SAVES`.
   - **Offline Play**:
-    - **Cache Full Game**: Downloads and SHA-256 verifies all 210 game files (shell, WASM engine, 165 Addressables bundles, and 26 cutscenes) into browser `CacheStorage` for offline play.
+    - **Cache Full Game**: Downloads and SHA-256 verifies all 210 game files (shell, WASM engine, 165 Addressables bundles, and 26 cutscenes) into browser `CacheStorage` for offline play. *(Requires opening https://d1qh2ou2210k6v.cloudfront.net/ directly in a tab — browsers block Service Workers inside local `file://` iframes.)*
     - **Verify**: Audits cached file integrity against the release manifests.
+    - **↻ Refresh Files**: Fetches fresh manifests and updates cached files in-place without reloading the tab.
+    - **Clear Cache** (red, 2-click confirm): Deletes cached game files to free disk quota while keeping all your saves untouched.
   - **Memory & Display**:
-    - **Scale**: Adjusts canvas render resolution (`0.5×`, `0.75×`, `0.85×`, or `1.0×` native DPR, keeping full-resolution source textures intact). Lowering to `0.75×` or `0.5×` helps integrated/low-end GPUs maintain 60 FPS.
-    - **HUD**: Toggle between **Hidden** (invisible at rest; reveals on bottom-right corner hover), **Warnings**, or **Always Visible**.
-    - **Fullscreen**: Enters fullscreen on `document.documentElement` so the Settings drawer remains usable in fullscreen.
+    - **✦ Free Memory**: Reclaims unused Unity assets, runs garbage collection, and evicts unreferenced cached bundles in-place without reloading the tab.
+    - **Scale**: Adjusts canvas render resolution live (`0.5×`, `0.75×`, `0.85×`, or `1.0×` native DPR, no reload required) while keeping full-resolution source textures intact. Lowering to `0.75×` or `0.5×` helps integrated/low-end GPUs maintain 60 FPS.
+    - **HUD**: Toggle between **Compact**, **Detailed**, **Warnings**, or **Hidden** (invisible at rest; reveals on bottom-right corner hover).
+    - **Fullscreen**: Enters fullscreen on `document.documentElement` so the Settings drawer remains visible, and locks **`Escape`** (Chromium Keyboard Lock API) so pressing `Escape` pauses the game instead of exiting fullscreen *(hold `Escape` for ~2s to exit fullscreen)*.
     - **Diagnostics**: Opens crash/memory telemetry (live WASM heap, free headroom, allocator layout status, recent errors) so you can copy-paste it into a bug report.
 
 ---

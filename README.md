@@ -2,7 +2,7 @@
 
 > **Play the FULLY FIXED AND WORKING Port Now (No Download Required):** **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)**
 >
-> **Prefer a single `.html` file?** Download **[`silksong.html`](https://raw.githubusercontent.com/30nnguyen/silksong-webport/main/silksong.html)** (right-click → *Save Link As*) and double-click it to open in Chrome or Edge — no unzipping, no extra files, always up to date.
+> **Prefer a single `.html` file?** Download **[`silksong.html` from the Latest Release](https://github.com/30nnguyen/silksong-webport/releases/latest/download/silksong.html)** (1-click download — no right-click required) and double-click it to open in Chrome or Edge. *(For full Offline Play and shared browser saves, open the direct CloudFront link above.)*
 >
 > **Found a bug, missing sound, weird visual, or crash?** **[Open a Bug Report](https://github.com/30nnguyen/silksong-webport/issues/new/choose)** and let us know so we can fix it!
 
@@ -34,6 +34,11 @@ Older Silksong browser ports suffered from frequent out-of-memory crashes, missi
 - **Fixed wrong lighting, dark areas & Black Thread visuals**: Repaired lighting math and missing shader variants across **600+ materials** (including `Sprites/Lit`, `Default-ColorFlash`, `Darkness Sprite`, Surface area lighting, stencil masking in 34 rooms, and the Hunter meter arc).
 - **Fixed Pause Blur, Bloom, UI Blend Modes & Real Film Grain**: Restored background blur behind menus, fixed Bloom glow and 3 WebGL render-target glitches, and replaced the broken Film Grain option with real 3-pass Film Grain (`Options → Video → Noise` works without crashing!).
 - **Fixed the pink/coral screen bug**: Equipping red tools and closing the inventory used to leave a persistent pink `#ec837a` tint over the whole world. Fixed cleanly at the source.
+- **Fixed stretched UI sprites & Rewind menu overflow**: Restored native Windows aspect ratios across **2,300+ UI sprites** (save-slot Crests, Options sliders, menu cursors, pause/dialog flourishes, Play Mode icons, Map/Inventory/Tool/Journal icons) and fixed the `AUTO SAVES` Rewind list overflowing past the save slot frame on both WebGPU and WebGL 2.
+- **No-reload save import, live memory relief & cache controls**:
+  - Importing a `.dat` / `.json` save refreshes save slots **live with zero tab reload** (or returns cleanly to Title without saving if overwriting your active slot).
+  - Settings includes **`↻ Refresh Files`** (updates cached files in-place without reloading the tab), **`Clear Cache`** (frees storage while keeping all saves intact), **`✦ Free Memory`** (reclaims unused assets & GC in-place + automatic low-memory relief), and live **Render Scale** switching with zero reload.
+  - **Fullscreen `Escape` Keyboard Lock**: In Chromium fullscreen, pressing `Escape` pauses Silksong instead of exiting fullscreen (hold `Escape` to exit fullscreen).
 
 ### 3. Complete Sound Effects, Music & 1080p Cutscenes
 - **Over 14,300 silent sound effects restored**: The original web export accidentally blanked out thousands of sound links — including **Hornet's needle swings**, room ambience, enemy sounds, and **77 Trobbio / Tormented Trobbio boss cues** (drums, tension, smoke, tornado). We restored **14,270+ missing audio links across 552 rooms, 10 standalone scenes, and 6 shared packs**.
@@ -69,8 +74,8 @@ Older Silksong browser ports suffered from frequent out-of-memory crashes, missi
 
 ## How to Play
 
-1. **Direct Browser Link (Recommended)**: Open **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)** in desktop Chrome or Edge (64-bit).
-2. **Single Standalone HTML File**: Download **[`silksong.html`](https://raw.githubusercontent.com/30nnguyen/silksong-webport/main/silksong.html)** from this repository and open it directly in your browser. It fetches the latest verified game files automatically without needing any other local files or source code.
+1. **Direct Browser Link (Recommended — Supports Full Offline Mode)**: Open **[https://d1qh2ou2210k6v.cloudfront.net/](https://d1qh2ou2210k6v.cloudfront.net/)** in desktop Chrome or Edge (64-bit).
+2. **Single Standalone HTML File**: Download **[`silksong.html`](https://github.com/30nnguyen/silksong-webport/releases/latest/download/silksong.html)** from Releases and open it directly in your browser. It launches the latest verified build automatically without needing any extra files. *(Note: browsers restrict Service Worker offline caching inside `file://` frames — use the direct link above if you want full Offline Play.)*
 
 ### Controls Quick Reference
 
